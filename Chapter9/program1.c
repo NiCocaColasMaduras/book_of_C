@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Программа 1
+// 436 - 438
+
+char* now()
+{
+    time_t t;
+    time(&t);
+    return asctime(localtime(&t));
+}
+
+/* Главная управляющая программа.
+Записывает отчеты о работе охранного патруля. */
+int main()
+{
+    char comment[80];
+    char cmd[120];
+
+    fgetc(comment, 80, stdin);
+    sprintf(cmd
+    "echo '%s %s' >> reports.log",
+    comment, now());
+    system(cmd);
+    return 0;
+}
